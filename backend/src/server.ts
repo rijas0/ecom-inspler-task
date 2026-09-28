@@ -5,6 +5,7 @@ import express from 'express';
 import cors from 'cors';
 
 import {connectDB } from './config/db';
+import {authRoute} from './routes/auth.routes';
 
 const PORT = process.env.PORT || 5000;
 
@@ -20,6 +21,8 @@ app.get('/api/hello',(req,res)=>{
         message:'Hello world'
     })
 })
+
+app.use("/api/auth",authRoute);
 
 const startServer = async ()=>{
     await connectDB();
