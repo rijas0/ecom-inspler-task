@@ -140,7 +140,7 @@ Create `backend/.env`:
     PORT=5000
     MONGODB_URI=mongo_db_connection_string
     JWT_SECRET=jwt_secret
-    CLIENT_URL=https://ecom-inspler-task.vercel.app/
+    CLIENT_URL=https://preeminent-marzipan-487c94.netlify.app
 
 ### Frontend
 
