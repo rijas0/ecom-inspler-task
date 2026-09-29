@@ -31,14 +31,6 @@ app.use("/api/test/protected", authenticate, (req, res) => {
   });
 });
 
-app.get("/api/test/admin", authenticate, requireAdmin, (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "You have admin access",
-    user: req.user,
-  });
-});
-
 app.use("/api/products", productsRoute);
 app.use("/api/cart",cartRoute);
 app.use(errorMiddleware);
