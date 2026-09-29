@@ -22,13 +22,6 @@ app.use(
 );
 app.use(express.json());
 
-app.get("/api/hello", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Hello world",
-  });
-});
-
 app.use("/api/auth", authRoute);
 app.use("/api/test/protected", authenticate, (req, res) => {
   res.status(200).json({
