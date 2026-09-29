@@ -5,7 +5,8 @@ import express from "express";
 import cors from "cors";
 
 import { connectDB } from "./config/db";
-import { authRoute } from "./routes/auth.routes";
+import authRoute from "./routes/auth.routes";
+import productsRoute from './routes/product.route';
 import { authenticate } from "./middleware/auth.middleware";
 import { requireAdmin } from "./middleware/admin.middleware";
 
@@ -42,6 +43,8 @@ app.get("/api/test/admin", authenticate, requireAdmin, (req, res) => {
     user: req.user,
   });
 });
+
+app.use("/api/products",productsRoute);
 
 const startServer = async () => {
   await connectDB();
