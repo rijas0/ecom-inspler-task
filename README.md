@@ -146,7 +146,7 @@ Create `backend/.env`:
 
 Create `frontend/.env.local`:
 
-    SERVER_URL=https://ecom-inspler-task.onrender.com/
+    NEXT_PUBLIC_API_URL=https://ecom-inspler-task.onrender.com/
 
 Example environment files are included in the project.
 
