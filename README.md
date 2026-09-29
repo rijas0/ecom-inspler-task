@@ -248,9 +248,9 @@ Cart endpoints require authentication.
 
 ## Deployment
 
-Frontend: `YOUR_FRONTEND_URL`
+Frontend: `https://preeminent-marzipan-487c94.netlify.app`
 
-Backend: `YOUR_BACKEND_URL`
+Backend: `https://ecom-inspler-task.onrender.com`
 
 Database: MongoDB Atlas
 
