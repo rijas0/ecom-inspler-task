@@ -5,10 +5,12 @@ import express from "express";
 import cors from "cors";
 
 import { connectDB } from "./config/db";
-import authRoute from "./routes/auth.routes";
-import productsRoute from './routes/product.route';
 import { authenticate } from "./middleware/auth.middleware";
 import { requireAdmin } from "./middleware/admin.middleware";
+import authRoute from "./routes/auth.routes";
+import productsRoute from "./routes/product.route";
+import cartRoute from './routes/cart.routes';
+import { errorMiddleware } from "./middleware/error.middleware";
 
 const PORT = process.env.PORT || 5000;
 
@@ -28,7 +30,7 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.use("/api/auth", authRoute);
-app.use("/api/test/protected",authenticate, (req, res) => {
+app.use("/api/test/protected", authenticate, (req, res) => {
   res.status(200).json({
     success: true,
     message: "You are authenticated",
@@ -44,7 +46,9 @@ app.get("/api/test/admin", authenticate, requireAdmin, (req, res) => {
   });
 });
 
-app.use("/api/products",productsRoute);
+app.use("/api/products", productsRoute);
+app.use("/api/cart",cartRoute);
+app.use(errorMiddleware);
 
 const startServer = async () => {
   await connectDB();

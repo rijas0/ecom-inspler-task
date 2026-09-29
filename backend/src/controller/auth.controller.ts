@@ -93,10 +93,10 @@ export const login = async (req:Request,res:Response,next:NextFunction)=>{
     }
 }
 
-const generateToken = (userid: string, role: string) => {
+const generateToken = (userId: string, role: string) => {
   return jwt.sign(
     {
-      userid,
+      userId,
       role,
     },
     process.env.JWT_SECRET as string,

@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-
 interface JwtPayload {
   userId: string;
   role: "user" | "admin";
@@ -21,14 +20,16 @@ export const authenticate = (
       });
     }
     const token = authHeader.split(" ")[1];
-    const verifyJwt =jwt.verify(
-        token,
-        process.env.JWT_SECRET as string
+    const verifyJwt = jwt.verify(
+      token,
+      process.env.JWT_SECRET as string,
     ) as JwtPayload;
     req.user = {
-    userId: verifyJwt.userId,
-    role: verifyJwt.role,
-};
+      userId: verifyJwt.userId,
+      role: verifyJwt.role,
+    };
+
+
     next();
   } catch (e) {
     return res.status(401).json({
