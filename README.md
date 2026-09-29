@@ -140,13 +140,13 @@ Create `backend/.env`:
     PORT=5000
     MONGODB_URI=mongo_db_connection_string
     JWT_SECRET=jwt_secret
-    CLIENT_URL=http://localhost:3000
+    CLIENT_URL=https://ecom-inspler-task.vercel.app/
 
 ### Frontend
 
 Create `frontend/.env.local`:
 
-    NEXT_PUBLIC_API_URL=http://localhost:5000/api
+    SERVER_URL=https://ecom-inspler-task.onrender.com/
 
 Example environment files are included in the project.
 
