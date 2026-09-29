@@ -50,6 +50,8 @@ export default function ProductsPage() {
     }
   };
 
+  
+
   useEffect(() => {
     fetchProducts();
   }, []);
