@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 
 import { User } from "../models/User";
 import { registerSchema, loginSchema } from "../schemas/auth.schema";
-import { success } from "zod";
 
 export const registerUser = async (
   req: Request,
